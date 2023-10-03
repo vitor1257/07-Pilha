@@ -87,12 +87,33 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (topo == NULL)
+	{
+		topo = novo;
+		novo->prox = NULL;
+		cout << "Numero adicionado\n";
+	}else
+	{
+		novo->prox = topo;
+		topo = novo;
+		cout << "Numero adicionado com sucesso\n";
+	}
 
 }
 
 void pop()
 {
+	NO* aux = topo;
 
+	if (topo == NULL)
+	{
+		cout << "Pilha vazia\n";
+	}else
+	{
+		topo = topo->prox;
+		cout << "Elemento escluido com sucesso" << aux->valor << "\n";
+		free(aux);
+	}
 	
 
 }
